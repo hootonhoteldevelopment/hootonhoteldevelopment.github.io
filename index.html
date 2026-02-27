@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HOOTON HOTEL DEVELOPMENT LTD | Residential Construction</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+--color-bg-dark: #121212;
+--color-bg-light: #ffffff;
+--color-bg-alt: #f4f4f5;
+--color-accent: #c4d600;
+--color-text-dark: #0a0a0a;
+--color-text-light: #ffffff;
+--color-text-muted: #888888;
+--font-main: 'Montserrat', sans-serif;
+--font-display: 'Space Grotesk', sans-serif;
+--transition-standard: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+* {
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+}
+body {
+font-family: var(--font-main);
+color: var(--color-text-dark);
+background-color: var(--color-bg-light);
+line-height: 1.6;
+overflow-x: hidden;
+}
+a {
+text-decoration: none;
+color: inherit;
+transition: var(--transition-standard);
+}
+ul {
+list-style: none;
+}
+.container {
+width: 100%;
+max-width: 1400px;
+margin: 0 auto;
+padding: 0 5%;
+}
+header {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+z-index: 1000;
+padding: 2rem 0;
+transition: var(--transition-standard);
+background: transparent;
+}
+header.scrolled {
+background: rgba(18, 18, 18, 0.95);
+padding: 1rem 0;
+backdrop-filter: blur(10px);
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+.nav-wrapper {
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+.logo-container {
+display: flex;
+align-items: center;
+gap: 1rem;
+color: var(--color-text-light);
+}
+.logo-mark {
+width: 48px;
+height: 48px;
+border: 2px solid var(--color-text-light);
+display: flex;
+justify-content: center;
+align-items: center;
+font-family: var(--font-display);
+font-weight: 700;
+font-size: 1.2rem;
+letter-spacing: -1px;
+}
+.logo-text {
+font-size: 0.8rem;
+font-weight: 700;
+letter-spacing: 2px;
+text-transform: uppercase;
+line-height: 1.2;
+}
+nav ul {
+display: flex;
+gap: 3rem;
+align-items: center;
+}
+nav a {
+color: var(--color-text-light);
+font-size: 0.8rem;
+font-weight: 700;
+letter-spacing: 2px;
+text-transform: uppercase;
+position: relative;
+}
+nav a::after {
+content: '';
+position: absolute;
+width: 0;
+height: 2px;
+bottom: -5px;
+left: 0;
+background-color: var(--color-accent);
+transition: var(--transition-standard);
+}
+nav a:hover::after {
+width: 100%;
+}
+.btn-nav {
+border: 1px solid var(--color-text-light);
+padding: 0.8rem 2rem;
+transform: skewX(-15deg);
+display: inline-block;
+}
+.btn-nav span {
+display: inline-block;
+transform: skewX(15deg);
+}
+.btn-nav:hover {
+background: var(--color-accent);
+border-color: var(--color-accent);
+color: var(--color-text-dark);
+}
+.hero {
+position: relative;
+min-height: 100vh;
+background-color: var(--color-bg-dark);
+display: flex;
+align-items: center;
+padding-top: 120px;
+clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+overflow: hidden;
+}
+.hero-bg {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop');
+background-size: cover;
+background-position: center;
+opacity: 0.3;
+z-index: 1;
+}
+.hero::after {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: linear-gradient(135deg, rgba(18,18,18,0.9) 0%, rgba(18,18,18,0.4) 100%);
+z-index: 2;
+}
+.hero-content {
+position: relative;
+z-index: 3;
+color: var(--color-text-light);
+width: 100%;
+}
+.hero h1 {
+font-size: clamp(3rem, 8vw, 7rem);
+font-family: var(--font-display);
+font-weight: 700;
+line-height: 0.9;
+margin-bottom: 2rem;
+text-transform: uppercase;
+letter-spacing: -2px;
+max-width: 900px;
+}
+.hero p {
+font-size: clamp(1rem, 2vw, 1.5rem);
+font-weight: 300;
+max-width: 600px;
+margin-bottom: 3rem;
+border-left: 4px solid var(--color-accent);
+padding-left: 1.5rem;
+}
+.btn-primary {
+display: inline-flex;
+align-items: center;
+background-color: var(--color-accent);
+color: var(--color-text-dark);
+font-weight: 700;
+font-size: 0.9rem;
+letter-spacing: 2px;
+text-transform: uppercase;
+padding: 1.2rem 3rem;
+cursor: pointer;
+border: none;
+position: relative;
+overflow: hidden;
+z-index: 1;
+}
+.btn-primary::before {
+content: '';
+position: absolute;
+top: 0;
+left: -100%;
+width: 100%;
+height: 100%;
+background-color: var(--color-bg-light);
+transition: var(--transition-standard);
+z-index: -1;
+}
+.btn-primary:hover::before {
+left: 0;
+}
+.btn-primary:hover {
+color: var(--color-text-dark);
+}
+.about {
+padding: 10rem 0 8rem;
+background-color: var(--color-bg-light);
+position: relative;
+}
+.about-grid {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 4rem;
+align-items: center;
+}
+.about-visual {
+position: relative;
+}
+.about-mark {
+font-family: var(--font-display);
+font-size: 25rem;
+font-weight: 700;
+color: var(--color-accent);
+line-height: 0.7;
+position: absolute;
+top: -5rem;
+left: -5rem;
+opacity: 0.2;
+z-index: 0;
+}
+.about-title {
+font-family: var(--font-display);
+font-size: 4rem;
+line-height: 1;
+text-transform: uppercase;
+position: relative;
+z-index: 1;
+margin-bottom: 2rem;
+color: var(--color-text-dark);
+}
+.about-text {
+font-size: 1.1rem;
+color: var(--color-text-muted);
+position: relative;
+z-index: 1;
+}
+.about-text p {
+margin-bottom: 1.5rem;
+}
+.services {
+padding: 8rem 0;
+background-color: var(--color-bg-alt);
+}
+.section-header {
+margin-bottom: 5rem;
+text-align: center;
+}
+.section-header h2 {
+font-family: var(--font-display);
+font-size: 3rem;
+text-transform: uppercase;
+color: var(--color-text-dark);
+position: relative;
+display: inline-block;
+}
+.section-header h2::after {
+content: '';
+position: absolute;
+bottom: -15px;
+left: 50%;
+transform: translateX(-50%);
+width: 60px;
+height: 4px;
+background-color: var(--color-accent);
+}
+.services-grid {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 2rem;
+}
+.service-card {
+background: var(--color-bg-light);
+padding: 4rem 3rem;
+transition: var(--transition-standard);
+border-bottom: 4px solid transparent;
+}
+.service-card:hover {
+transform: translateY(-10px);
+border-bottom-color: var(--color-accent);
+box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+}
+.service-icon {
+width: 50px;
+height: 50px;
+margin-bottom: 2rem;
+fill: var(--color-text-dark);
+}
+.service-title {
+font-family: var(--font-display);
+font-size: 1.5rem;
+margin-bottom: 1rem;
+text-transform: uppercase;
+}
+.service-desc {
+color: var(--color-text-muted);
+font-size: 0.95rem;
+}
+.advantages {
+padding: 10rem 0;
+background-color: var(--color-bg-dark);
+color: var(--color-text-light);
+clip-path: polygon(0 10%, 100% 0, 100% 90%, 0 100%);
+}
+.advantages .section-header h2 {
+color: var(--color-text-light);
+}
+.advantages-grid {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 3rem;
+margin-top: 4rem;
+}
+.advantage-item {
+position: relative;
+padding-left: 3rem;
+}
+.advantage-number {
+position: absolute;
+left: 0;
+top: -5px;
+font-family: var(--font-display);
+font-size: 2rem;
+font-weight: 700;
+color: var(--color-accent);
+}
+.advantage-title {
+font-family: var(--font-display);
+font-size: 1.2rem;
+margin-bottom: 1rem;
+text-transform: uppercase;
+letter-spacing: 1px;
+}
+.advantage-text {
+color: rgba(255,255,255,0.6);
+font-size: 0.9rem;
+}
+.process {
+padding: 8rem 0 12rem;
+background-color: var(--color-bg-light);
+}
+.process-timeline {
+display: flex;
+justify-content: space-between;
+position: relative;
+margin-top: 5rem;
+}
+.process-timeline::before {
+content: '';
+position: absolute;
+top: 40px;
+left: 0;
+width: 100%;
+height: 2px;
+background-color: var(--color-bg-alt);
+z-index: 1;
+}
+.process-step {
+flex: 1;
+position: relative;
+z-index: 2;
+padding: 0 2rem;
+text-align: center;
+}
+.step-indicator {
+width: 80px;
+height: 80px;
+background-color: var(--color-bg-light);
+border: 2px solid var(--color-accent);
+border-radius: 50%;
+display: flex;
+justify-content: center;
+align-items: center;
+margin: 0 auto 2rem;
+font-family: var(--font-display);
+font-weight: 700;
+font-size: 1.5rem;
+color: var(--color-text-dark);
+transition: var(--transition-standard);
+}
+.process-step:hover .step-indicator {
+background-color: var(--color-accent);
+}
+.step-title {
+font-family: var(--font-display);
+font-size: 1.2rem;
+margin-bottom: 1rem;
+text-transform: uppercase;
+}
+.step-desc {
+color: var(--color-text-muted);
+font-size: 0.9rem;
+}
+footer {
+background-color: var(--color-text-dark);
+color: var(--color-text-light);
+padding: 6rem 0 3rem;
+position: relative;
+}
+.footer-cta {
+background-color: var(--color-accent);
+padding: 4rem;
+position: absolute;
+top: -80px;
+left: 5%;
+right: 5%;
+display: flex;
+justify-content: space-between;
+align-items: center;
+color: var(--color-text-dark);
+}
+.footer-cta h3 {
+font-family: var(--font-display);
+font-size: 2rem;
+text-transform: uppercase;
+max-width: 600px;
+line-height: 1.2;
+}
+.footer-grid {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 4rem;
+margin-top: 6rem;
+border-bottom: 1px solid rgba(255,255,255,0.1);
+padding-bottom: 4rem;
+}
+.footer-info h4 {
+font-family: var(--font-display);
+font-size: 1.2rem;
+color: var(--color-text-muted);
+margin-bottom: 1.5rem;
+text-transform: uppercase;
+letter-spacing: 2px;
+}
+.footer-info p {
+font-size: 1.1rem;
+margin-bottom: 0.5rem;
+}
+.footer-bottom {
+margin-top: 3rem;
+display: flex;
+justify-content: space-between;
+color: var(--color-text-muted);
+font-size: 0.8rem;
+}
+.modal-overlay {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: rgba(0,0,0,0.9);
+z-index: 9999;
+display: none;
+justify-content: center;
+align-items: center;
+opacity: 0;
+transition: opacity 0.3s ease;
+}
+.modal-overlay.active {
+display: flex;
+opacity: 1;
+}
+.modal-content {
+background-color: var(--color-bg-light);
+width: 100%;
+max-width: 600px;
+padding: 4rem;
+position: relative;
+transform: translateY(50px);
+transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.modal-overlay.active .modal-content {
+transform: translateY(0);
+}
+.modal-close {
+position: absolute;
+top: 2rem;
+right: 2rem;
+background: none;
+border: none;
+cursor: pointer;
+width: 30px;
+height: 30px;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.modal-close svg {
+width: 20px;
+height: 20px;
+fill: var(--color-text-dark);
+}
+.form-group {
+margin-bottom: 2rem;
+position: relative;
+}
+.form-group input,
+.form-group textarea {
+width: 100%;
+background: none;
+border: none;
+border-bottom: 2px solid var(--color-text-muted);
+padding: 1rem 0;
+font-family: var(--font-main);
+font-size: 1rem;
+color: var(--color-text-dark);
+transition: var(--transition-standard);
+resize: none;
+}
+.form-group input:focus,
+.form-group textarea:focus {
+outline: none;
+border-bottom-color: var(--color-accent);
+}
+.form-group label {
+position: absolute;
+top: 1rem;
+left: 0;
+color: var(--color-text-muted);
+pointer-events: none;
+transition: var(--transition-standard);
+font-size: 0.9rem;
+text-transform: uppercase;
+letter-spacing: 1px;
+}
+.form-group input:focus ~ label,
+.form-group input:valid ~ label,
+.form-group textarea:focus ~ label,
+.form-group textarea:valid ~ label {
+top: -10px;
+font-size: 0.7rem;
+color: var(--color-accent);
+}
+.modal-title {
+font-family: var(--font-display);
+font-size: 2.5rem;
+margin-bottom: 1rem;
+text-transform: uppercase;
+line-height: 1;
+}
+.modal-desc {
+color: var(--color-text-muted);
+margin-bottom: 3rem;
+font-size: 0.9rem;
+}
+.success-check {
+width: 80px;
+height: 80px;
+border-radius: 50%;
+background-color: var(--color-accent);
+display: flex;
+justify-content: center;
+align-items: center;
+margin: 0 auto 2rem;
+}
+.success-check svg {
+width: 40px;
+height: 40px;
+fill: var(--color-bg-light);
+}
+.success-content {
+text-align: center;
+}
+@media (max-width: 1024px) {
+.about-grid, .footer-grid {
+grid-template-columns: 1fr;
+}
+.services-grid, .advantages-grid {
+grid-template-columns: repeat(2, 1fr);
+}
+.hero h1 {
+font-size: 4rem;
+}
+.footer-cta {
+flex-direction: column;
+gap: 2rem;
+text-align: center;
+}
+.process-timeline {
+flex-direction: column;
+gap: 3rem;
+}
+.process-timeline::before {
+display: none;
+}
+}
+@media (max-width: 768px) {
+nav ul {
+display: none;
+}
+.services-grid, .advantages-grid {
+grid-template-columns: 1fr;
+}
+.hero {
+clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
+}
+.advantages {
+clip-path: polygon(0 5%, 100% 0, 100% 95%, 0 100%);
+}
+.modal-content {
+padding: 3rem 2rem;
+}
+}
+</style>
+</head>
+<body>
+
+<header id="site-header">
+<div class="container nav-wrapper">
+<div class="logo-container">
+<div class="logo-mark">H</div>
+<div class="logo-text">HOOTON HOTEL<br>DEVELOPMENT</div>
+</div>
+<nav>
+<ul>
+<li><a href="#about">Organization</a></li>
+<li><a href="#services">Capabilities</a></li>
+<li><a href="#process">Methodology</a></li>
+<li><a href="#" class="btn-nav" onclick="openModal('contactModal'); return false;"><span>Initiate Project</span></a></li>
+</ul>
+</nav>
+</div>
+</header>
+
+<section class="hero">
+<div class="hero-bg"></div>
+<div class="container hero-content">
+<h1>Engineered For<br>Excellence.</h1>
+<p>Delivering premium residential and commercial building solutions across the United Kingdom through uncompromising structural integrity.</p>
+<button class="btn-primary" onclick="openModal('contactModal')">Commence Consultation</button>
+</div>
+</section>
+
+<section id="about" class="about">
+<div class="container about-grid">
+<div class="about-visual">
+<div class="about-mark">01</div>
+<h2 class="about-title">Structural<br>Mastery</h2>
+</div>
+<div class="about-text">
+<p>HOOTON HOTEL DEVELOPMENT LTD stands at the vanguard of modern structural engineering and residential construction. Founded on principles of enduring quality and architectural integrity, we transform blueprints into landmark properties.</p>
+<p>Our expertise spans complex residential developments and specialized hospitality infrastructures. We meticulously oversee every phase from initial ground-breaking to final handover.</p>
+<p>By integrating sustainable materials with cutting-edge construction methodologies, we ensure each project exceeds industry standards. Our commitment to precision guarantees environments that inspire and endure.</p>
+</div>
+</div>
+</section>
+
+<section id="services" class="services">
+<div class="container">
+<div class="section-header">
+<h2>Core Capabilities</h2>
+</div>
+<div class="services-grid">
+<div class="service-card">
+<svg class="service-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+<h3 class="service-title">Structural Frameworks</h3>
+<p class="service-desc">We design and construct robust skeletal structures for high-density residential buildings. Our engineering protocols prioritize seismic resilience and load-bearing optimization. Every framework is rigorously tested to ensure generational longevity.</p>
+</div>
+<div class="service-card">
+<svg class="service-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 21h18M5 21V7l8-4 8 4v14M9 21v-4a2 2 0 012-2h2a2 2 0 012 2v4M9 11h6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+<h3 class="service-title">Architectural Integration</h3>
+<p class="service-desc">We seamlessly merge aesthetic vision with structural pragmatism in our building processes. Our teams execute complex façade installations and spatial configurations with exactitude. The result is a flawless alignment of form and functional capacity.</p>
+</div>
+<div class="service-card">
+<svg class="service-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+<h3 class="service-title">Site Management</h3>
+<p class="service-desc">Comprehensive oversight of all construction activities ensures strict adherence to projected timelines. We implement stringent safety protocols and resource allocation strategies onsite. This systematic approach eliminates inefficiencies and mitigates risks.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="advantages">
+<div class="container">
+<div class="section-header">
+<h2>Strategic Advantages</h2>
+</div>
+<div class="advantages-grid">
+<div class="advantage-item">
+<div class="advantage-number">I</div>
+<h3 class="advantage-title">Precision Engineering</h3>
+<p class="advantage-text">Utilizing advanced computational models and spatial mapping to eliminate structural vulnerabilities long before physical construction begins.</p>
+</div>
+<div class="advantage-item">
+<div class="advantage-number">II</div>
+<h3 class="advantage-title">Sustainable Sourcing</h3>
+<p class="advantage-text">Procuring high-grade, environmentally responsible materials that enhance building efficiency, thermal regulation, and reduce ecological impact.</p>
+</div>
+<div class="advantage-item">
+<div class="advantage-number">III</div>
+<h3 class="advantage-title">Regulatory Compliance</h3>
+<p class="advantage-text">Navigating complex United Kingdom zoning laws, environmental regulations, and building codes with absolute proficiency to ensure uninterrupted progress.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section id="process" class="process">
+<div class="container">
+<div class="section-header">
+<h2>Operational Sequence</h2>
+</div>
+<div class="process-timeline">
+<div class="process-step">
+<div class="step-indicator">01</div>
+<h3 class="step-title">Analytical Phase</h3>
+<p class="step-desc">Comprehensive site surveying, geotechnical analysis, and architectural feasibility studies to establish a rigorous developmental baseline.</p>
+</div>
+<div class="process-step">
+<div class="step-indicator">02</div>
+<h3 class="step-title">Execution Phase</h3>
+<p class="step-desc">Systematic physical construction leveraging specialized heavy machinery, precision materials, and expertly coordinated technical labor.</p>
+</div>
+<div class="process-step">
+<div class="step-indicator">03</div>
+<h3 class="step-title">Delivery Phase</h3>
+<p class="step-desc">Rigorous multi-point quality assurance inspections and systems testing prior to final certification and client handover.</p>
+</div>
+</div>
+</div>
+</section>
+
+<footer>
+<div class="container">
+<div class="footer-cta">
+<h3>Ready to initiate your next development phase?</h3>
+<button class="btn-primary" onclick="openModal('contactModal')">Submit Parameters</button>
+</div>
+<div class="footer-grid">
+<div class="footer-info">
+<h4>Headquarters</h4>
+<p>111 South Road Waterloo</p>
+<p>LIVERPOOL, L22 0LT</p>
+<p>United Kingdom</p>
+</div>
+<div class="footer-info">
+<h4>Digital Correspondence</h4>
+<p>contact@hootonhoteldevelopment.info</p>
+<p style="margin-top: 2rem;">HOOTON HOTEL DEVELOPMENT LTD</p>
+<p style="font-size: 0.9rem; color: var(--color-text-muted);">Company Registration Architecture</p>
+</div>
+</div>
+<div class="footer-bottom">
+<p>&copy; 2026 HOOTON HOTEL DEVELOPMENT LTD. All Rights Reserved.</p>
+<p>Engineered in the UK</p>
+</div>
+</div>
+</footer>
+
+<div class="modal-overlay" id="contactModal">
+<div class="modal-content">
+<button class="modal-close" onclick="closeModal('contactModal')">
+<svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+</button>
+<h2 class="modal-title">Initiate Protocol</h2>
+<p class="modal-desc">Submit your project parameters below. Our engineering team will review the specifications.</p>
+<form id="contactForm" onsubmit="handleFormSubmit(event)">
+<div class="form-group">
+<input type="text" id="fullName" required>
+<label for="fullName">Full Name / Organization</label>
+</div>
+<div class="form-group">
+<input type="email" id="emailAddress" required>
+<label for="emailAddress">Electronic Mail Address</label>
+</div>
+<div class="form-group">
+<textarea id="projectDetails" rows="4" required></textarea>
+<label for="projectDetails">Project Specifications</label>
+</div>
+<button type="submit" class="btn-primary" style="width: 100%;">Transmit Data</button>
+</form>
+</div>
+</div>
+
+<div class="modal-overlay" id="successModal">
+<div class="modal-content success-content">
+<button class="modal-close" onclick="closeModal('successModal')">
+<svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+</button>
+<div class="success-check">
+<svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+</div>
+<h2 class="modal-title">Transmission Successful</h2>
+<p class="modal-desc" style="margin-bottom: 0;">Your project parameters have been securely logged. Our specialists will initiate contact via the provided electronic mail address shortly.</p>
+</div>
+</div>
+
+<script>
+window.addEventListener('scroll', function() {
+var header = document.getElementById('site-header');
+if (window.scrollY > 50) {
+header.classList.add('scrolled');
+} else {
+header.classList.remove('scrolled');
+}
+});
+
+function openModal(modalId) {
+document.getElementById(modalId).classList.add('active');
+document.body.style.overflow = 'hidden';
+}
+
+function closeModal(modalId) {
+document.getElementById(modalId).classList.remove('active');
+document.body.style.overflow = 'auto';
+}
+
+function handleFormSubmit(event) {
+event.preventDefault();
+closeModal('contactModal');
+setTimeout(function() {
+openModal('successModal');
+document.getElementById('contactForm').reset();
+}, 400);
+}
+
+document.querySelectorAll('.modal-overlay').forEach(function(overlay) {
+overlay.addEventListener('click', function(e) {
+if (e.target === this) {
+closeModal(this.id);
+}
+});
+});
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+anchor.addEventListener('click', function (e) {
+e.preventDefault();
+var target = document.querySelector(this.getAttribute('href'));
+if(target) {
+window.scrollTo({
+top: target.offsetTop - 80,
+behavior: 'smooth'
+});
+}
+});
+});
+</script>
+
+</body>
+</html>
